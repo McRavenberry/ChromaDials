@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1701806243
+level_01.tscn::PackedScene::251298230327952934::1701805953::0::1::::<><>::uid://cp0nnr1r6vf21::::res://set_button.tscn
+tile.tscn::PackedScene::8766900642895038408::1701806243::0::1::::<><>::uid://dypmbgjwv0hc8::::res://assets/white_square.png
+set_button.tscn::PackedScene::5878096935911437948::1701805953::0::1::::<><>::
+::res://assets/::1701806340
+white_square_100.png::CompressedTexture2D::416892065235822222::1701806340::1701806346::1::::<><>::
+white_square_150.png::CompressedTexture2D::7571152258435296363::1701806296::1701806346::1::::<><>::
+white_square_200.png::CompressedTexture2D::4219193458185419530::1701806196::1701806346::1::::<><>::

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cp0nnr1r6vf21"]
+
+[node name="SetButton" type="Button"]
+anchors_preset = -1
+anchor_left = -0.104
+anchor_top = -0.035
+anchor_right = 0.104
+anchor_bottom = 0.035
+offset_left = -50.08
+offset_top = -24.8
+offset_right = 50.08
+offset_bottom = 24.8
+toggle_mode = true
+button_pressed = true
+text = "SET"
