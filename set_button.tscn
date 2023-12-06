@@ -2,14 +2,14 @@
 
 [node name="SetButton" type="Button"]
 anchors_preset = -1
-anchor_left = -0.104
-anchor_top = -0.035
-anchor_right = 0.104
-anchor_bottom = 0.035
-offset_left = -50.08
-offset_top = -24.8
-offset_right = 50.08
-offset_bottom = 24.8
+anchor_left = -0.174
+anchor_top = -0.087
+anchor_right = 0.174
+anchor_bottom = 0.087
+offset_left = 0.32
+offset_top = 0.160004
+offset_right = -0.32
+offset_bottom = -0.160004
 toggle_mode = true
 button_pressed = true
 text = "SET"

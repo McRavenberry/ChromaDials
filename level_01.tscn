@@ -1,20 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://dty3y8k3g17o"]
+[gd_scene load_steps=8 format=3 uid="uid://dty3y8k3g17o"]
 
+[ext_resource type="Script" path="res://scripts/level_01.gd" id="1_ftior"]
 [ext_resource type="PackedScene" uid="uid://cp0nnr1r6vf21" path="res://set_button.tscn" id="1_wfyq3"]
-[ext_resource type="Script" path="res://level_01.gd" id="1_yslp2"]
-[ext_resource type="PackedScene" uid="uid://dw50tqcrnwvgi" path="res://tile.tscn" id="2_iojmu"]
+[ext_resource type="Texture2D" uid="uid://rp7tl1a10vur" path="res://assets/bgblob_400.png" id="3_5lhfg"]
+[ext_resource type="Script" path="res://scripts/Bgblob450.gd" id="3_h1bv4"]
+[ext_resource type="Texture2D" uid="uid://bos8l2gc701bi" path="res://assets/bgblob_450.png" id="4_xkxig"]
+[ext_resource type="Script" path="res://scripts/Bgblob400.gd" id="5_enwnx"]
+[ext_resource type="PackedScene" uid="uid://bya5h8kx66v8c" path="res://tv.tscn" id="13_hku8n"]
 
 [node name="level01" type="Node2D"]
-script = ExtResource("1_yslp2")
+script = ExtResource("1_ftior")
+
+[node name="bgb" type="Node" parent="."]
+
+[node name="Bgblob450" type="Sprite2D" parent="bgb" groups=["bg"]]
+z_index = -10
+position = Vector2(123, 391)
+texture = ExtResource("4_xkxig")
+script = ExtResource("3_h1bv4")
+
+[node name="Bgblob400" type="Sprite2D" parent="bgb" groups=["bg"]]
+z_index = -10
+position = Vector2(377, 556)
+texture = ExtResource("3_5lhfg")
+script = ExtResource("5_enwnx")
 
 [node name="SetButton" parent="." instance=ExtResource("1_wfyq3")]
-offset_left = 176.92
-offset_top = 603.2
-offset_right = 277.08
-offset_bottom = 652.8
+offset_left = 24.0
+offset_top = 638.0
+offset_right = 169.0
+offset_bottom = 693.0
+action_mode = 0
 
-[node name="player_color" parent="." instance=ExtResource("2_iojmu")]
-position = Vector2(232, 314)
-
-[node name="target_color" parent="." instance=ExtResource("2_iojmu")]
-position = Vector2(232, 163)
+[node name="TV" parent="." instance=ExtResource("13_hku8n")]
+position = Vector2(238, 387)

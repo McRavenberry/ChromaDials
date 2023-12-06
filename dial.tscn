@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdinvjlgfw432"]
+
+[ext_resource type="Texture2D" uid="uid://d4k7vtcbr342b" path="res://assets/dial_50.png" id="1_w4vbj"]
+[ext_resource type="Script" path="res://scripts/dial.gd" id="2_x6cr4"]
+
+[node name="dial" type="Sprite2D"]
+texture = ExtResource("1_w4vbj")
+script = ExtResource("2_x6cr4")
