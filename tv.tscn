@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://b4w7gn5qk0q8w" path="res://assets/reflection_171.png" id="2_xdc2g"]
 [ext_resource type="PackedScene" uid="uid://cx315mcunh21a" path="res://screen.tscn" id="3_gnpn1"]
 [ext_resource type="PackedScene" uid="uid://bdinvjlgfw432" path="res://dial.tscn" id="4_1xrlx"]
-[ext_resource type="PackedScene" uid="uid://ducdviyy4w4ds" path="res://knob.tscn" id="5_6pbs1"]
+[ext_resource type="PackedScene" uid="uid://ducdviyy4w4ds" path="res://bulb.tscn" id="5_6pbs1"]
 
 [node name="TV" type="Sprite2D"]
 texture = ExtResource("1_4e727")
 
 [node name="screen" parent="." groups=["screen"] instance=ExtResource("3_gnpn1")]
-position = Vector2(-40, 58)
+position = Vector2(-40, 63)
 
 [node name="red_dial" parent="." groups=["dial"] instance=ExtResource("4_1xrlx")]
 modulate = Color(1, 0, 0, 1)
@@ -23,18 +23,23 @@ modulate = Color(0, 1, 0, 1)
 position = Vector2(150, 60)
 scale = Vector2(1.2, 1.2)
 speed = 40
+direction = -1
 
 [node name="blue_dial" parent="." groups=["dial"] instance=ExtResource("4_1xrlx")]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(150, 130)
 scale = Vector2(1.2, 1.2)
 
-[node name="left_knob" parent="." groups=["knob"] instance=ExtResource("5_6pbs1")]
-position = Vector2(-100, -192)
+[node name="left_bulb" parent="." groups=["knob", "light"] instance=ExtResource("5_6pbs1")]
+position = Vector2(-112, -160)
 scale = Vector2(1.05, 1.05)
 
-[node name="right_knob" parent="." groups=["knob"] instance=ExtResource("5_6pbs1")]
-position = Vector2(102, -192)
+[node name="right_bulb" parent="." groups=["knob", "light"] instance=ExtResource("5_6pbs1")]
+position = Vector2(112, -160)
+scale = Vector2(1.05, 1.05)
+
+[node name="center_bulb" parent="." groups=["knob", "light"] instance=ExtResource("5_6pbs1")]
+position = Vector2(0, -198)
 scale = Vector2(1.05, 1.05)
 
 [node name="reflection" type="Sprite2D" parent="."]
