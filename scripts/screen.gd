@@ -1,8 +1,13 @@
 extends Sprite2D
-var r:float = 1.0
-var g:float = 1.0
-var b:float = 1.0
-var colors2:Array = [
+#var r:float = 1.0
+#var g:float = 1.0
+#var b:float = 1.0
+#var h:float = 359
+#var s:float = 100
+#var v:float = 100
+#var a:float = 1
+
+var colors:Array = [
 	"ALICE_BLUE",
 	"ANTIQUE_WHITE",
 	"AQUA",
@@ -150,12 +155,19 @@ var colors2:Array = [
 	"YELLOW",
 	"YELLOW_GREEN"
 ]
-#var colors:Array = ["ORANGE","TURQUOISE","WHEAT"]
-#var rand_color = colors[randi() % colors.size()]
-var bg_color = bg.bg_color
-var bg_r = bg_color.r
-var bg_g = bg_color.g
-var bg_b = bg_color.b
+
+
+var r:float = 1
+var g:float = 1
+var b:float = 1
+var h:float = 359
+var s:float = 100
+var v:float = 100
+var a:float = 1
+#var rand_color = bg.bg_color
+#var target_r = Color(rand_color).r
+#var target_g = Color(rand_color).g
+#var target_b = Color(rand_color).b
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -164,9 +176,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	set_modulate(Color(bg.bg_color,255))
-
-#func get_color():
-#	var rand_color = colors[randi() % colors.size()]
-#	var bg_color = Color(rand_color, 255)
-#	return bg_color
+	set_modulate(Color(r,g,b,255))
+#	print(Color(rand_color,1).g)
+	
+#	set_modulate(Color.from_hsv(h,s,v,a))
+#	h = get_node().degs
+#	print(h)
+#	print(Color.from_hsv(h,s,v,a))

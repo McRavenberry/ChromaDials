@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dty3y8k3g17o"]
+[gd_scene load_steps=13 format=3 uid="uid://dty3y8k3g17o"]
 
 [ext_resource type="Script" path="res://scripts/level_01.gd" id="1_ftior"]
 [ext_resource type="PackedScene" uid="uid://cp0nnr1r6vf21" path="res://set_button.tscn" id="1_wfyq3"]
@@ -6,7 +6,18 @@
 [ext_resource type="Script" path="res://scripts/Bgblob450.gd" id="3_h1bv4"]
 [ext_resource type="Texture2D" uid="uid://bos8l2gc701bi" path="res://assets/bgblob_450.png" id="4_xkxig"]
 [ext_resource type="Script" path="res://scripts/Bgblob400.gd" id="5_enwnx"]
+[ext_resource type="Script" path="res://pause.gd" id="7_ecfso"]
+[ext_resource type="Script" path="res://Panel.gd" id="8_j2uak"]
 [ext_resource type="PackedScene" uid="uid://bya5h8kx66v8c" path="res://tv.tscn" id="13_hku8n"]
+
+[sub_resource type="SystemFont" id="SystemFont_ic00d"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_5cqeh"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_o335e"]
+font_names = PackedStringArray("Courier New")
 
 [node name="level01" type="Node2D"]
 script = ExtResource("1_ftior")
@@ -19,18 +30,64 @@ position = Vector2(123, 391)
 texture = ExtResource("4_xkxig")
 script = ExtResource("3_h1bv4")
 
-[node name="Bgblob400" type="Sprite2D" parent="bgb" groups=["bg"]]
+[node name="Bgblob400" type="Sprite2D" parent="bgb/Bgblob450" groups=["bg"]]
 z_index = -10
-position = Vector2(377, 556)
+position = Vector2(254, 165)
 texture = ExtResource("3_5lhfg")
 script = ExtResource("5_enwnx")
 
-[node name="SetButton" parent="." instance=ExtResource("1_wfyq3")]
+[node name="pause" parent="." instance=ExtResource("1_wfyq3")]
+unique_name_in_owner = true
 offset_left = 24.0
 offset_top = 638.0
 offset_right = 169.0
 offset_bottom = 693.0
 action_mode = 0
+text = "START"
+script = ExtResource("7_ecfso")
 
 [node name="TV" parent="." instance=ExtResource("13_hku8n")]
 position = Vector2(238, 387)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="timer" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 144.0
+offset_top = 45.0
+offset_right = 302.0
+offset_bottom = 100.0
+script = ExtResource("8_j2uak")
+
+[node name="min" type="Label" parent="CanvasLayer/timer"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 48.0
+offset_bottom = 44.0
+theme_override_fonts/font = SubResource("SystemFont_ic00d")
+theme_override_font_sizes/font_size = 24
+text = "00"
+horizontal_alignment = 2
+
+[node name="sec" type="Label" parent="CanvasLayer/timer/min"]
+layout_mode = 0
+offset_left = 41.0
+offset_right = 83.0
+offset_bottom = 31.0
+theme_override_fonts/font = SubResource("SystemFont_5cqeh")
+theme_override_font_sizes/font_size = 24
+text = ":00"
+horizontal_alignment = 2
+
+[node name="milli" type="Label" parent="CanvasLayer/timer/min"]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 114.0
+offset_bottom = 31.0
+theme_override_fonts/font = SubResource("SystemFont_o335e")
+theme_override_font_sizes/font_size = 24
+text = ".00"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]

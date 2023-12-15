@@ -1,5 +1,5 @@
 extends Sprite2D
-var degs:float = 0.0
+var gdegs:float = 0.0
 @export var cw:bool = true 
 @export var run:bool = true
 @export var speed:int = 30
@@ -27,16 +27,6 @@ func _process(delta):
 			rotation_degrees = 0
 		elif rotation_degrees < 0:
 			rotation_degrees = 359.9
-		degs = rotation_degrees
+		gdegs = rotation_degrees
 	else:
 		pass
-
-#func _unhandled_input(event):
-#	if event is InputEventMouseButton:
-#		if event.button_index == MOUSE_BUTTON_LEFT:
-#			if event.pressed and run:
-#				run = false
-#			elif event.pressed and run == false:
-#				run = true
-#		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-#			print("Wheel down")

@@ -1,8 +1,6 @@
-extends Sprite2D
-var r:float = 1.0
-var g:float = 1.0
-var b:float = 1.0
-var colors2:Array = [
+extends Node
+
+var color_list:Array = [
 	"ALICE_BLUE",
 	"ANTIQUE_WHITE",
 	"AQUA",
@@ -150,23 +148,14 @@ var colors2:Array = [
 	"YELLOW",
 	"YELLOW_GREEN"
 ]
-#var colors:Array = ["ORANGE","TURQUOISE","WHEAT"]
-#var rand_color = colors[randi() % colors.size()]
-var bg_color = bg.bg_color
+var colors:Array = [Color(color_list[randi() % color_list.size()], 255)]
+var bg_color = colors[0]
 var bg_r = bg_color.r
 var bg_g = bg_color.g
 var bg_b = bg_color.b
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	set_modulate(Color(bg.bg_color,255))
-
-#func get_color():
-#	var rand_color = colors[randi() % colors.size()]
-#	var bg_color = Color(rand_color, 255)
-#	return bg_color
+	for i in range(4):
+		var temp = color_list[randi() % color_list.size()]
+		colors.append(Color(temp, 255))
+	print(bg_color)

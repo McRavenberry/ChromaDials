@@ -3,72 +3,75 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if not %pause.status:
+		print("off")
+		%timer.stop()
+#		%pause.status = false
+#		%timer.start()
+#	else:
+#		print("off")
+#		%pause.status = true
+#		%timer.stop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-#	for dial in get_tree().get_nodes_in_group("screen"):
-#		get_node("TV/screen").r = dial.degs / 360.0
-#		get_node("TV/screen").g = dial.degs / 360.0
-#		get_node("TV/screen").b = dial.degs / 360.0
-#	get_node("TV/screen").r = get_node("dials/red_dial").degs / 360.0
-#	get_node("TV/screen").b = get_node("dials/blue_dial").degs / 360.0
-#	get_node("TV/screen").g = get_node("dials/green_dial").degs / 360.0
-#	for dial in get_tree().get_nodes_in_group("dial"):
-
-#	var hr:float = get_node("TV/red_dial").degs
-#	var hg:float = get_node("TV/green_dial").degs
-#	var hb:float = get_node("TV/blue_dial").degs
-
+#	
 	# Updates the screen color based on the dials
-	get_node("TV/screen").r = get_node("TV/red_dial").degs / 360
-#	get_node("TV/screen").h = (hr + hg + hb) / 3
-#	get_node("TV/left_light").r = get_node("TV/red_dial").degs % 360
-#	get_node("TV/right_light").r = get_node("TV/red_dial").degs % 360
-#	get_node("TV/center_light").r = get_node("TV/red_dial").degs % 360
-	
-	get_node("TV/screen").g = get_node("TV/green_dial").degs / 360
-#	get_node("TV/left_light").g = get_node("TV/green_dial").degs % 360
-#	get_node("TV/right_light").g = get_node("TV/green_dial").degs % 360
-#	get_node("TV/center_light").g = get_node("TV/green_dial").degs % 360
-	
-	get_node("TV/screen").b = get_node("TV/blue_dial").degs / 360
-#	get_node("TV/left_light").b = get_node("TV/blue_dial").degs % 360.0
-#	get_node("TV/right_light").b = get_node("TV/blue_dial").degs % 360.0
-#	get_node("TV/center_light").b = get_node("TV/blue_dial").degs % 360.0
-	
-#	get_node("TV/screen").h = (hr + hg + hb) / 3
-#	for screen in get_tree().get_nodes_in_group("screen"):
-#		for knob in get_tree().get_nodes_in_group("knob"):
-#			var degrees = 324
-#			knob.r = dial.degs / 360.0
-#			knob.g = dial.degs / 360.0
-#			knob.b = dial.degs / 360.0
-#			screen.r = dial.degs / 360.0
-#			screen.g = dial.degs / 360.0
-#			screen.b = dial.degs / 360.0
+	get_node("TV/screen").r = get_node("TV/red_dial").degs
+	get_node("TV/screen").g = get_node("TV/green_dial").degs
+	get_node("TV/screen").b = get_node("TV/blue_dial").degs
 
 	# Sets the background color
 	for bgb in get_tree().get_nodes_in_group("bg"):
-		bgb.r = 0.5
-		bgb.g = 0.6
-		bgb.b = 1.0
+		bgb.r = bg.bg_r
+		bgb.g = bg.bg_g
+		bgb.b = bg.bg_b
 #	$target_color.b = 100
 
 	# Lights up the bulbs if the dials are +/- 5% of background color
-	if get_node("TV/red_dial").degs / 360 * 0.95 < get_node("bgb/Bgblob450").r and get_node("bgb/Bgblob450").r < get_node("TV/red_dial").degs / 360 * 1.05:
+	if get_node("TV/red_dial").red:
 		get_node("TV/left_bulb").set_modulate(Color(1,0,0,1))
 	else:
 		get_node("TV/left_bulb").set_modulate(Color(1,1,1,1))
 		
-	if get_node("TV/green_dial").degs / 360 * 0.95 < get_node("bgb/Bgblob450").g and get_node("bgb/Bgblob450").g < get_node("TV/green_dial").degs / 360 * 1.05:
+	if get_node("TV/green_dial").green:
 		get_node("TV/center_bulb").set_modulate(Color(0,1,0,1))
 	else:
 		get_node("TV/center_bulb").set_modulate(Color(1,1,1,1))
 		
-	if get_node("TV/blue_dial").degs / 360 * 0.95 < get_node("bgb/Bgblob450").b and get_node("bgb/Bgblob450").b < get_node("TV/blue_dial").degs / 360 * 1.05:
+	if get_node("TV/blue_dial").blue:
 		get_node("TV/right_bulb").set_modulate(Color(0,0,1,1))
 	else:
 		get_node("TV/right_bulb").set_modulate(Color(1,1,1,1))
+		
+	if get_node("TV/red_dial").red and get_node("TV/green_dial").green and get_node("TV/blue_dial").blue:
+		if not get_node("TV/red_dial").rrun and not get_node("TV/green_dial").grun and not get_node("TV/blue_dial").brun:
+			bg.bg_color = bg.colors[1]
+			bg.bg_r = bg.bg_color.r
+			bg.bg_g = bg.bg_color.g
+			bg.bg_b = bg.bg_color.b
+			
+			for bgb in get_tree().get_nodes_in_group("bg"):
+				bgb.r = bg.bg_r
+				bgb.g = bg.bg_g
+				bgb.b = bg.bg_b
+	
+#	%pause.pressed().connect(func ():
+#		%pause.text = "START" if %pause.pressed else "STOP"
+#		)
+
+
+func _on_pause_pressed():
+	if %pause.status:
+		print("on")
+		%pause.status = false
+		%pause.text = "START"
+		%timer.stop()
+	else:
+		print("off")
+		%pause.status = true
+		%pause.text = "STOP"
+		%timer.start()
+#	%timer.stop()
+#	%pause.text = "START" if %pause.pressed else "STOP"

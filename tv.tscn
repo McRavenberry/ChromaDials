@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bya5h8kx66v8c"]
+[gd_scene load_steps=9 format=3 uid="uid://bya5h8kx66v8c"]
 
 [ext_resource type="Texture2D" uid="uid://c0lvsgx23cyr" path="res://assets/tv_400.png" id="1_4e727"]
 [ext_resource type="Texture2D" uid="uid://b4w7gn5qk0q8w" path="res://assets/reflection_171.png" id="2_xdc2g"]
 [ext_resource type="PackedScene" uid="uid://cx315mcunh21a" path="res://screen.tscn" id="3_gnpn1"]
 [ext_resource type="PackedScene" uid="uid://bdinvjlgfw432" path="res://dial.tscn" id="4_1xrlx"]
+[ext_resource type="Script" path="res://scripts/dial_red.gd" id="4_ypfek"]
 [ext_resource type="PackedScene" uid="uid://ducdviyy4w4ds" path="res://bulb.tscn" id="5_6pbs1"]
+[ext_resource type="Script" path="res://scripts/dial_green.gd" id="5_nr2ed"]
+[ext_resource type="Script" path="res://scripts/dial_blue.gd" id="6_gsisn"]
 
 [node name="TV" type="Sprite2D"]
 texture = ExtResource("1_4e727")
@@ -16,31 +19,43 @@ position = Vector2(-40, 63)
 modulate = Color(1, 0, 0, 1)
 position = Vector2(150, -10)
 scale = Vector2(1.2, 1.2)
-speed = 20
+script = ExtResource("4_ypfek")
+rcw = true
+rrun = false
+rspeed = 30
+rdirection = 1
 
 [node name="green_dial" parent="." groups=["dial"] instance=ExtResource("4_1xrlx")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(150, 60)
 scale = Vector2(1.2, 1.2)
-speed = 40
-direction = -1
+script = ExtResource("5_nr2ed")
+gcw = true
+grun = false
+gspeed = 30
+gdirection = 1
 
 [node name="blue_dial" parent="." groups=["dial"] instance=ExtResource("4_1xrlx")]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(150, 130)
 scale = Vector2(1.2, 1.2)
+script = ExtResource("6_gsisn")
+brun = false
 
 [node name="left_bulb" parent="." groups=["knob", "light"] instance=ExtResource("5_6pbs1")]
 position = Vector2(-112, -160)
 scale = Vector2(1.05, 1.05)
+script = null
 
 [node name="right_bulb" parent="." groups=["knob", "light"] instance=ExtResource("5_6pbs1")]
 position = Vector2(112, -160)
 scale = Vector2(1.05, 1.05)
+script = null
 
 [node name="center_bulb" parent="." groups=["knob", "light"] instance=ExtResource("5_6pbs1")]
 position = Vector2(0, -198)
 scale = Vector2(1.05, 1.05)
+script = null
 
 [node name="reflection" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.588235)

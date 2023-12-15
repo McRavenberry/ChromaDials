@@ -1,7 +1,12 @@
 res://level_01.tscn
-res://set_button.tscn
+res://scripts/Bgblob400.gd
 res://tv.tscn
-res://dial.tscn
+res://scripts/dial_blue.gd
+res://scripts/dial_green.gd
+res://scripts/dial_red.gd
+res://scripts/screen.gd
+res://scripts/Bgblob450.gd
 res://scripts/level_01.gd
-res://scripts/Screen300.gd
-res://scripts/dial.gd
+res://global.gd
+res://Panel.gd
+res://pause.gd

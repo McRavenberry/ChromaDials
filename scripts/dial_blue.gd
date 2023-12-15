@@ -1,10 +1,10 @@
 extends Sprite2D
 var degs:float = 0.0
 @export var cw:bool = true 
-@export var run:bool = true
+@export var brun:bool = false
 @export var speed:int = 30
 @export var direction:int = 1
-
+var blue
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if run:
+	if brun:
 		if direction > 0:
 			rotation_degrees += delta * speed
 		else:
@@ -27,15 +27,32 @@ func _process(delta):
 			rotation_degrees = 0
 		elif rotation_degrees < 0:
 			rotation_degrees = 359.9
-		degs = rotation_degrees
+		degs = rotation_degrees/360
+		
+		if degs - 0.01 < bg.bg_b and bg.bg_b < degs + 0.01:
+			blue = true
+		else: 
+			blue = false
 	else:
 		pass
 
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if get_rect().has_point(to_local(event.position)) and brun:
+			print("Blue Dial: " + str(degs) + "  " + "BG Blue: " + str(bg.bg_b))
+			brun = false
+			direction *= -1
+		elif get_rect().has_point(to_local(event.position)) and not brun:
+			brun = true
+			
+	
+	
 #func _unhandled_input(event):
 #	if event is InputEventMouseButton:
 #		if event.button_index == MOUSE_BUTTON_LEFT:
 #			if event.pressed and run:
 #				run = false
+#				direction *= -1
 #			elif event.pressed and run == false:
 #				run = true
 #		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:

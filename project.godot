@@ -14,6 +14,10 @@ config/name="ChromaDials"
 run/main_scene="res://level_01.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 
+[autoload]
+
+bg="*res://global.gd"
+
 [display]
 
 window/size/viewport_width=480
