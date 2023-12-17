@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1702852785
+::res://::1702853097
 bgmusic.tscn::PackedScene::3656426868231751519::1702851889::0::1::::<><>::uid://dmoo1f6m2t1f::::res://sound/music/chill.mp3<>uid://2yxqoiwising::::res://sound/music/rainbows.mp3<>uid://dkqb1r3o4hlhm::::res://sound/music/sand.mp3<>uid://nhmybrj6niam::::res://sound/music/sleep.mp3
 bulb.tscn::PackedScene::8567387790390581996::1701837938::0::1::::<><>::uid://c2rwtcfjaq75a
 dial.tscn::PackedScene::2614329549200836551::1702532239::0::1::::<><>::uid://d4k7vtcbr342b
@@ -31,8 +31,7 @@ tv_600.png::CompressedTexture2D::3607186424137840832::1701901433::1701901495::1:
 white_square_100.png::CompressedTexture2D::416892065235822222::1701823340::1701823340::1::::<><>::
 white_square_150.png::CompressedTexture2D::7571152258435296363::1701823340::1701823340::1::::<><>::
 white_square_200.png::CompressedTexture2D::4219193458185419530::1701823340::1701823340::1::::<><>::
-::res://gifs/::1702852835
-this-garden-you-tend.mp3::AudioStreamMP3::4975915778275122070::1702852835::1702852836::1::::<><>::
+::res://gifs/::1702853076
 ::res://scripts/::1702849693
 Bgblob400.gd::GDScript::-1::1702849693::0::1::::<>Sprite2D<>::
 Bgblob450.gd::GDScript::-1::1702621784::0::1::::<>Sprite2D<>::
