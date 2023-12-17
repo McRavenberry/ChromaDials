@@ -1,5 +1,8 @@
 extends Node
+#@onready var musicplayer = $mp.play()
 
+var is_game_over = false
+const SAVEFILE = "user://save.dat"
 var color_list:Array = [
 	"ALICE_BLUE",
 	"ANTIQUE_WHITE",
@@ -148,14 +151,53 @@ var color_list:Array = [
 	"YELLOW",
 	"YELLOW_GREEN"
 ]
-var colors:Array = [Color(color_list[randi() % color_list.size()], 255)]
+var color:Array = [Color(color_list[randi() % color_list.size()], 255)]
+
+var colors:Array = [
+	Color("BLUE_VIOLET",255), 
+	Color("DARK_SEA_GREEN",255), 
+	Color("DARK_SLATE_BLUE",255),
+	Color("GOLDENROD",255),
+	Color("INDIAN_RED",255)
+]
+
 var bg_color = colors[0]
 var bg_r = bg_color.r
 var bg_g = bg_color.g
 var bg_b = bg_color.b
 
-func _ready():
-	for i in range(4):
-		var temp = color_list[randi() % color_list.size()]
-		colors.append(Color(temp, 255))
-	print(bg_color)
+var minutes = 0
+var seconds = 0
+var msec = 0
+var end_time = 0
+
+var best_minutes = 0
+var best_seconds = 0
+var best_msec = 0
+var best_end_time = 999999999
+#func _ready():
+#	for i in range(4):
+#		var temp = color_list[randi() % color_list.size()]
+#		colors.append(Color(temp, 255))
+#	print(bg_color)
+
+func save():
+	var file = FileAccess.open(SAVEFILE, FileAccess.WRITE)
+	file.store_var(best_minutes)
+	file.store_var(best_seconds)
+	file.store_var(best_msec)
+	file.store_var(best_end_time)
+	
+func load():
+	if FileAccess.file_exists(SAVEFILE):
+		var file = FileAccess.open(SAVEFILE, FileAccess.READ)
+		best_minutes = file.get_var(best_minutes)
+		best_seconds = file.get_var(best_seconds)
+		best_msec = file.get_var(best_msec)
+		best_end_time = file.get_var(best_end_time)
+	else:
+		print("no data saved...")
+		best_minutes = 0
+		best_seconds = 0
+		best_msec = 0
+		best_end_time = 999999999

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cubtclk7vjy3y"]
+
+[ext_resource type="AudioStream" uid="uid://ddbogqi3qsnec" path="res://this-garden-you-tend.mp3" id="2_bdrrc"]
+
+[node name="musicplayer" type="AudioStreamPlayer"]
+stream = ExtResource("2_bdrrc")
+volume_db = -20.0
+autoplay = true

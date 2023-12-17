@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://co0hdxyru6udh"]
+
+[ext_resource type="Script" path="res://layout.gd" id="1_6q3q0"]
+
+[node name="gameover" type="Node2D"]
+
+[node name="layout" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = 127.0
+offset_right = 250.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.885, 1.885)
+size_flags_horizontal = 4
+script = ExtResource("1_6q3q0")
+metadata/_edit_use_anchors_ = true
+
+[node name="gameover" type="Label" parent="layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "GAME OVER"
+
+[node name="new_hs" type="Label" parent="layout"]
+visible = false
+layout_mode = 2
+text = "New High Score!!!"
+horizontal_alignment = 1
+
+[node name="current_time_title" type="Label" parent="layout"]
+layout_mode = 2
+text = "Current Time"
+horizontal_alignment = 1
+
+[node name="current_time" type="Label" parent="layout"]
+layout_mode = 2
+text = "0:00:00"
+horizontal_alignment = 1
+
+[node name="best_time_title" type="Label" parent="layout"]
+layout_mode = 2
+text = "Best Time"
+horizontal_alignment = 1
+
+[node name="best_time" type="Label" parent="layout"]
+layout_mode = 2
+text = "0:00:00"
+horizontal_alignment = 1
+
+[node name="try_again" type="Button" parent="layout"]
+layout_mode = 2
+text = "Try Again"
+
+[node name="quit" type="Button" parent="layout"]
+layout_mode = 2
+text = "Quit
+"
+
+[connection signal="pressed" from="layout/try_again" to="layout" method="_on_try_again_pressed"]
+[connection signal="pressed" from="layout/quit" to="layout" method="_on_quit_pressed"]

@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://hvx522p80t8o"]
+
+[ext_resource type="Script" path="res://start.gd" id="1_voq30"]
+[ext_resource type="Texture2D" uid="uid://bos8l2gc701bi" path="res://assets/bgblob_450.png" id="2_qgrf5"]
+[ext_resource type="Texture2D" uid="uid://rp7tl1a10vur" path="res://assets/bgblob_400.png" id="4_6jdvt"]
+[ext_resource type="PackedScene" uid="uid://cubtclk7vjy3y" path="res://musicplayer.tscn" id="6_7c144"]
+[ext_resource type="PackedScene" uid="uid://cp0nnr1r6vf21" path="res://set_button.tscn" id="6_j7giu"]
+[ext_resource type="PackedScene" uid="uid://bya5h8kx66v8c" path="res://tv.tscn" id="8_apmjs"]
+
+[node name="start" type="Node2D"]
+script = ExtResource("1_voq30")
+
+[node name="base" type="ColorRect" parent="."]
+z_index = -4
+z_as_relative = false
+y_sort_enabled = true
+offset_right = 480.0
+offset_bottom = 719.0
+
+[node name="bgb" type="Node" parent="."]
+
+[node name="Bgblob450" type="Sprite2D" parent="bgb" groups=["bg"]]
+z_index = -2
+position = Vector2(124, 317)
+texture = ExtResource("2_qgrf5")
+
+[node name="Bgblob400" type="Sprite2D" parent="bgb/Bgblob450" groups=["bg"]]
+z_index = -2
+position = Vector2(254, 165)
+texture = ExtResource("4_6jdvt")
+
+[node name="start" parent="." instance=ExtResource("6_j7giu")]
+unique_name_in_owner = true
+offset_left = 25.0
+offset_top = 564.0
+offset_right = 170.0
+offset_bottom = 619.0
+action_mode = 0
+text = "PLAY"
+
+[node name="TV" parent="." instance=ExtResource("8_apmjs")]
+position = Vector2(239, 313)
+
+[node name="title" type="Label" parent="."]
+offset_left = 78.0
+offset_top = 286.0
+offset_right = 319.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "ChromaDial"
+horizontal_alignment = 1
+
+[node name="name" type="Label" parent="title"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 51.0
+offset_right = 212.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "By Trevor McGarrah"
+
+[node name="btt" type="Label" parent="."]
+offset_left = 127.0
+offset_top = 387.0
+offset_right = 279.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Best Time"
+
+[node name="bt" type="Label" parent="btt"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 48.0
+offset_right = 118.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "00:00:00"
+
+[node name="musicplayer" parent="." instance=ExtResource("6_7c144")]
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

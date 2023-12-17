@@ -40,7 +40,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if get_rect().has_point(to_local(event.position)) and grun:
-			print("Green Dial: " + str(degs) + "  " + "BG Green: " + str(bg.bg_g))
+#			print("Green Dial: " + str(degs) + "  " + "BG Green: " + str(bg.bg_g))
 			grun = false
 			gdirection *= -1
 		elif get_rect().has_point(to_local(event.position)) and not grun:
