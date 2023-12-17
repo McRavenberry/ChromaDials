@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://p6w4txsf83o7"]
+
+[node name="directions" type="Control"]
+layout_mode = 3
+anchor_left = 0.417
+anchor_top = 0.779
+anchor_right = 0.933
+anchor_bottom = 0.96
+offset_left = -0.160019
+offset_top = -6.88
+offset_right = 0.159973
+offset_bottom = -7.20001
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.741176)
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 197.0
+offset_top = 555.0
+offset_right = -37.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.967
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 0.0189819
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Directions: Match five RGB color
+combos to the background. Click
+ the dials to stop/start their
+spinning. Compete for the best 
+time!"
+horizontal_alignment = 3

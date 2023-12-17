@@ -5,7 +5,7 @@ var degs:float = 0.0
 @export var gspeed:int = 30
 @export var gdirection:int = 1
 var green
-
+var gclickable = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -38,13 +38,19 @@ func _process(delta):
 		pass
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if get_rect().has_point(to_local(event.position)) and grun:
-#			print("Green Dial: " + str(degs) + "  " + "BG Green: " + str(bg.bg_g))
-			grun = false
-			gdirection *= -1
-		elif get_rect().has_point(to_local(event.position)) and not grun:
-			grun = true
+	if get_tree().current_scene.name != "start" and gclickable:
+		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if get_rect().has_point(to_local(event.position)) and grun:
+	#			print("Green Dial: " + str(degs) + "  " + "BG Green: " + str(bg.bg_g))
+				grun = false
+				gdirection *= -1
+				
+				if green:
+					%matched.play()
+				else:
+					%unmatched.play()
+			elif get_rect().has_point(to_local(event.position)) and not grun:
+				grun = true
 
 #func _unhandled_input(event):
 #	if event is InputEventMouseButton and $gbutton.pressed:

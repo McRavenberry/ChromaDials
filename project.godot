@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 [autoload]
 
 bg="*res://scripts/global.gd"
-mp="*res://musicplayer.tscn"
+bgmusic="*res://bgmusic.tscn"
 
 [display]
 

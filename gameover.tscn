@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://co0hdxyru6udh"]
+[gd_scene load_steps=3 format=3 uid="uid://co0hdxyru6udh"]
 
 [ext_resource type="Script" path="res://layout.gd" id="1_6q3q0"]
+[ext_resource type="AudioStream" uid="uid://beut74yxk2ef5" path="res://sound/sfx/highscore.mp3" id="2_g5qn2"]
 
 [node name="gameover" type="Node2D"]
+
+[node name="bg_color" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 481.0
+offset_bottom = 722.0
 
 [node name="layout" type="GridContainer" parent="."]
 anchors_preset = 8
@@ -60,6 +66,11 @@ text = "Try Again"
 layout_mode = 2
 text = "Quit
 "
+
+[node name="newhighscore" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_g5qn2")
+volume_db = -10.0
 
 [connection signal="pressed" from="layout/try_again" to="layout" method="_on_try_again_pressed"]
 [connection signal="pressed" from="layout/quit" to="layout" method="_on_quit_pressed"]

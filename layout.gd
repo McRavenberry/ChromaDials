@@ -6,7 +6,8 @@ var msec = bg.msec
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bg.load()
+	bg.loadscore()
+	%bg_color.set_modulate(Color(bg.colors[randi() % bg.colors.size()], 255))
 	if bg.is_game_over:
 		$current_time.text = "%02d:%02d.%03d" % [minutes, seconds, msec]
 		var end_time = "%02d%02d%03d" % [minutes, seconds, msec]
@@ -22,7 +23,8 @@ func _ready():
 			bg.best_msec = msec
 			$best_time.text = "%02d:%02d.%03d" % [bg.best_minutes, bg.best_seconds, bg.best_msec]
 			$new_hs.show()
-			bg.save()
+			%newhighscore.play()
+			bg.savescore()
 		else:
 			$new_hs.hide()
 			$best_time.text = "%02d:%02d.%03d" % [bg.best_minutes, bg.best_seconds, bg.best_msec]

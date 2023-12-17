@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bya5h8kx66v8c"]
+[gd_scene load_steps=11 format=3 uid="uid://bya5h8kx66v8c"]
 
 [ext_resource type="Texture2D" uid="uid://c0lvsgx23cyr" path="res://assets/tv_400.png" id="1_4e727"]
 [ext_resource type="Texture2D" uid="uid://b4w7gn5qk0q8w" path="res://assets/reflection_171.png" id="2_xdc2g"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ducdviyy4w4ds" path="res://bulb.tscn" id="5_6pbs1"]
 [ext_resource type="Script" path="res://scripts/dial_green.gd" id="5_nr2ed"]
 [ext_resource type="Script" path="res://scripts/dial_blue.gd" id="6_gsisn"]
+[ext_resource type="AudioStream" uid="uid://bscfdf6asai5g" path="res://sound/sfx/matched.ogg" id="9_uinlx"]
+[ext_resource type="AudioStream" uid="uid://dicu5gr33dmoe" path="res://sound/sfx/unmatched.ogg" id="10_bj4sl"]
 
 [node name="TV" type="Sprite2D"]
 texture = ExtResource("1_4e727")
@@ -61,3 +63,13 @@ script = null
 modulate = Color(1, 1, 1, 0.588235)
 position = Vector2(-73, 57)
 texture = ExtResource("2_xdc2g")
+
+[node name="matched" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_uinlx")
+volume_db = -10.0
+
+[node name="unmatched" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_bj4sl")
+volume_db = -10.0

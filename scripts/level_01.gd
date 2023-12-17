@@ -37,16 +37,19 @@ func _process(delta):
 	# Lights up the bulbs if the dials are +/- 5% of background color
 	if get_node("TV/red_dial").red:
 		get_node("TV/left_bulb").set_modulate(Color(1,0,0,1))
+#		$audio/matched.play()
 	else:
 		get_node("TV/left_bulb").set_modulate(Color(1,1,1,1))
 		
 	if get_node("TV/green_dial").green:
 		get_node("TV/center_bulb").set_modulate(Color(0,1,0,1))
+#		$audio/matched.play()
 	else:
 		get_node("TV/center_bulb").set_modulate(Color(1,1,1,1))
 		
 	if get_node("TV/blue_dial").blue:
 		get_node("TV/right_bulb").set_modulate(Color(0,0,1,1))
+#		$audio/matched.play()
 	else:
 		get_node("TV/right_bulb").set_modulate(Color(1,1,1,1))
 		
@@ -88,14 +91,21 @@ func _on_pause_pressed():
 		get_node("TV/red_dial").rrun = false
 		get_node("TV/green_dial").grun = false
 		get_node("TV/blue_dial").brun = false
+		get_node("")
+		get_node("TV/red_dial").rclickable = false
+		get_node("TV/green_dial").gclickable = false
+		get_node("TV/blue_dial").bclickable = false
 	else:
 		print("off")
 		%pause.status = true
-		%pause.text = "STOP"
+		%pause.text = "PAUSE"
 		get_node("time_display/timer").set_process(true)
 		get_node("time_display/timer").start()
 		get_node("TV/red_dial").rrun = true
 		get_node("TV/green_dial").grun = true
 		get_node("TV/blue_dial").brun = true
+		get_node("TV/red_dial").rclickable = true
+		get_node("TV/green_dial").gclickable = true
+		get_node("TV/blue_dial").bclickable = true
 #	%timer.stop()
 #	%pause.text = "START" if %pause.pressed else "STOP"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsdg20whjio1d"]
+
+[ext_resource type="AudioStream" uid="uid://dmoo1f6m2t1f" path="res://sound/music/chill.mp3" id="1_pg1ay"]
+[ext_resource type="AudioStream" uid="uid://2yxqoiwising" path="res://sound/music/rainbows.mp3" id="3_2ji1g"]
+[ext_resource type="AudioStream" uid="uid://dkqb1r3o4hlhm" path="res://sound/music/sand.mp3" id="4_5som2"]
+[ext_resource type="AudioStream" uid="uid://nhmybrj6niam" path="res://sound/music/sleep.mp3" id="5_ghy3n"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hv3jc"]
+streams_count = 4
+stream_0/stream = ExtResource("1_pg1ay")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_2ji1g")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_5som2")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_ghy3n")
+stream_3/weight = 1.0
+
+[node name="bgmusic" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_hv3jc")
+volume_db = -20.0
+autoplay = true

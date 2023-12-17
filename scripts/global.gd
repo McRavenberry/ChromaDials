@@ -181,14 +181,14 @@ var best_end_time = 999999999
 #		colors.append(Color(temp, 255))
 #	print(bg_color)
 
-func save():
+func savescore():
 	var file = FileAccess.open(SAVEFILE, FileAccess.WRITE)
 	file.store_var(best_minutes)
 	file.store_var(best_seconds)
 	file.store_var(best_msec)
 	file.store_var(best_end_time)
 	
-func load():
+func loadscore():
 	if FileAccess.file_exists(SAVEFILE):
 		var file = FileAccess.open(SAVEFILE, FileAccess.READ)
 		best_minutes = file.get_var(best_minutes)

@@ -5,7 +5,7 @@ var degs:float = 0.0
 @export var rspeed:int = 30
 @export var rdirection:int = 1
 var red
-
+var rclickable = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -38,13 +38,19 @@ func _process(delta):
 		pass
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if get_rect().has_point(to_local(event.position)) and rrun:
-#			print("Red Dial: " + str(degs) + "  " + "BG Red: " + str(bg.bg_r))
-			rrun = false
-			rdirection *= -1
-		elif get_rect().has_point(to_local(event.position)) and not rrun:
-			rrun = true
+	if get_tree().current_scene.name != "start" and rclickable:
+		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if get_rect().has_point(to_local(event.position)) and rrun:
+	#			print("Red Dial: " + str(degs) + "  " + "BG Red: " + str(bg.bg_r))
+				rrun = false
+				rdirection *= -1
+				if red:
+					%matched.play()
+				else:
+					%unmatched.play()
+			elif get_rect().has_point(to_local(event.position)) and not rrun:
+				rrun = true
+		
 
 #func _unhandled_input(event):
 #	if event is InputEventMouseButton and $rbutton.pressed:

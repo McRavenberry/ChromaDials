@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://start.gd" id="1_voq30"]
 [ext_resource type="Texture2D" uid="uid://bos8l2gc701bi" path="res://assets/bgblob_450.png" id="2_qgrf5"]
 [ext_resource type="Texture2D" uid="uid://rp7tl1a10vur" path="res://assets/bgblob_400.png" id="4_6jdvt"]
-[ext_resource type="PackedScene" uid="uid://cubtclk7vjy3y" path="res://musicplayer.tscn" id="6_7c144"]
 [ext_resource type="PackedScene" uid="uid://cp0nnr1r6vf21" path="res://set_button.tscn" id="6_j7giu"]
+[ext_resource type="PackedScene" uid="uid://p6w4txsf83o7" path="res://directions.tscn" id="6_rib03"]
 [ext_resource type="PackedScene" uid="uid://bya5h8kx66v8c" path="res://tv.tscn" id="8_apmjs"]
 
 [node name="start" type="Node2D"]
@@ -80,6 +80,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "00:00:00"
 
-[node name="musicplayer" parent="." instance=ExtResource("6_7c144")]
+[node name="directions" parent="." instance=ExtResource("6_rib03")]
+anchor_right = 0.417
+anchor_bottom = 0.779
+offset_left = 198.0
+offset_top = 548.0
+offset_right = 445.0
+offset_bottom = 683.0
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
