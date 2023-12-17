@@ -1,16 +1,8 @@
 res://level_01.tscn
 res://scripts/Bgblob400.gd
-res://scripts/dial_red.gd
-res://scripts/level_01.gd
 res://tv.tscn
 res://gameover.tscn
 res://time_display.tscn
 res://start.tscn
-res://musicplayer.tscn
-res://scripts/dial_blue.gd
-res://scripts/dial_green.gd
-res://layout.gd
-res://scripts/global.gd
-res://start.gd
 res://bgmusic.tscn
 res://directions.tscn
